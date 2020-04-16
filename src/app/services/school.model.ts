@@ -1,7 +1,7 @@
-export interface ICompany {
+export interface ISchool {
   name: string;
   date: string;
-  business: string;
   location: string;
+  degree: string;
   description: string;
 }

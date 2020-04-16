@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SchoolService} from '../services/school.service';
+import {ISchool} from '../services/school.model';
 
 @Component({
   selector: 'app-rpi',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RPIComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private  schoolService: SchoolService) { }
+  school: ISchool;
   ngOnInit(): void {
+    this.schoolService.getSchoolInfo('rpi').subscribe((data)=> {
+      this.school = data;
+    })
   }
 
 }
