@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ICompany} from '../services/company.model';
+import {CompanyService} from '../services/company.service';
 
 @Component({
   selector: 'app-intrexon',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntrexonComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private  companyService: CompanyService) { }
+  company: ICompany;
   ngOnInit(): void {
+    this.companyService.getCompanyInfo('intrexon').subscribe((data) => {
+      this.company = data;
+    })
   }
 
 }
