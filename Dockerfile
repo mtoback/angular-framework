@@ -21,4 +21,4 @@ RUN npm install -g @angular/cli@9.1.1
 COPY . /app
 
 # start app
-CMD npm start
+CMD ng serve --proxy-config /app/src/app/proxy.conf.json
