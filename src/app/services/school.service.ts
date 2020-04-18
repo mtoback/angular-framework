@@ -11,7 +11,7 @@ export class SchoolService {
   constructor(private http: HttpClient) { }
   getSchoolInfo(schoolName: string): Observable<ISchool> {
     return this.http.get<ISchool>(`/api/school/${schoolName}`)
-      .pipe(catchError(this.handleError<ISchool>(`getCompanyInfo:${schoolName}`)));
+      .pipe(catchError(this.handleError<ISchool>(`getSchoolInfo:${schoolName}`)));
   }
   handleError<T>(operation: string = 'operation', result?: T) {
     return (error: any): Observable<T> => {

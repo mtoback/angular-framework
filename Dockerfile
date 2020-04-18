@@ -1,24 +1,24 @@
 # base image
-FROM node:12.16.2
+FROM node:12.16.2 as builder
+# Create a directory where our app will be placed
+RUN mkdir -p /app
 
-# install chrome for protractor tests
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -yq google-chrome-stable
-
-# set working directory
+# Change directory so that our commands run inside this new directory
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Copy dependency definitions
+COPY package*.json /app/
 
-# install and cache app dependencies
-COPY package.json /app/package.json
+# Install dependecies
 RUN npm install
-RUN npm install -g @angular/cli@9.1.1
 
-# add app
-COPY . /app
+# Get all the code needed to run the app
+COPY . /app/
 
-# start app
-CMD ng serve --proxy-config /app/src/app/proxy.conf.json
+# Expose the port the app runs in
+EXPOSE 4200
+
+# Serve the app
+CMD ["npm", "start"]
+#FROM nginx:1.15.8-alpine
+#COPY --from=builder /app/dist/angular-framework/ /usr/share/nginx/html
