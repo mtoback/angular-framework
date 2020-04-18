@@ -1,19 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <span>My Story</span>
+  <div *ngIf="screenWidth < 1000">
+    <span><button [disabled]="context == 'career'" (click)="context='career'">Career</button></span>
+    <span><button [disabled]="context == 'education'" (click)="context='education'">Education</button></span>
+    <div *ngIf="context === 'career'">
+      <span><button (click)="goto('intrexon')">Intrexon</button></span><span><button (click)="goto('vmware')">VMWare</button></span>
+      <span><button (click)="goto('chordiant')">Chordiant</button></span><span><button (click)="goto('oceania')">Oceania</button></span>
+      <span><button (click)="goto('llnl')">Lawrence Livermore</button></span><span><button (click)="goto('niosh')">Niosh</button></span>
+    </div>
+    <div *ngIf="context === 'education'">
+      <span><button (click)="goto('rpi')">Rensselaer</button></span><span><button (click)="goto('cmu')">Carnegie-Mellon</button></span>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="screenWidth > 1000">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="careerNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Past Positions
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="careerNavbarDropdown">
           <a class="dropdown-item"  (click)="goto('intrexon')">Intrexon</a>
           <a class="dropdown-item"  (click)="goto('vmware')">VMWare</a>
           <a class="dropdown-item"  (click)="goto('chordiant')">Chordiant</a>
@@ -27,10 +35,10 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="schoolNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Education
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="schoolNavbarDropdown">
           <a class="dropdown-item"  (click)="goto('cmu')">Carnegie-Mellon</a>
           <a class="dropdown-item"  (click)="goto('rpi')">Rensselaer</a>
         </div>

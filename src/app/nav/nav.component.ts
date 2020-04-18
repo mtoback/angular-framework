@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,8 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  screenHeight;
+  screenWidth;
+  context = '';
+  @HostListener('window:resize', ['$event'])
+  onResize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+  }
+  constructor(private router:Router) {
+    this.onResize();
+  }
   goto(url){
     this.router.navigate([url]);
   }
