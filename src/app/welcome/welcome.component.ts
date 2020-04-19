@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
+  showWhoIAm = false;
+  showWhatElse = false;
   constructor() { }
 
   ngOnInit(): void {
