@@ -2,9 +2,12 @@
 I wrote this to give me a way to show myself and others what I can do with various technologies:
 - Angular 9
 - REST
-- Flask  (and so, python 3.7)
-- Go (to be added as a second server), and 
+- [Flask](https://github.com/mtoback/flask_webserver)  (and so, python 3.7)
+- Docker
+- Go (to be later added as a second server), and 
 - PostgreSQL
+
+The site generated for this is [here](http://www.iamasoftwareengineer.tech)
 
 This is an iterative process, and a lot of it is understanding how to identify the problem. For instance, I ran into [this](https://github.com/popperjs/popper-core/issues/429) among a lot of other things.
 
