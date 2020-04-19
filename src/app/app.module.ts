@@ -16,6 +16,7 @@ import { LlnlComponent } from './llnl/llnl.component';
 import { RPIComponent } from './rpi/rpi.component';
 import { CMUComponent } from './cmu/cmu.component';
 import { NIOSHComponent } from './niosh/niosh.component';
+import { MetadataComponent } from './metadata/metadata.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NIOSHComponent } from './niosh/niosh.component';
     LlnlComponent,
     RPIComponent,
     CMUComponent,
-    NIOSHComponent
+    NIOSHComponent,
+    MetadataComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { NIOSHComponent } from './niosh/niosh.component';
       {path: 'oceania', component: OceaniaComponent},
       {path: 'rpi', component: RPIComponent},
       {path: 'vmware', component: VmwareComponent},
+      {path: 'metadata', component: MetadataComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo: '/welcome', pathMatch: 'full'}
     ]),
