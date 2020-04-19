@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <span><a class="nav-link" href="#">My Story</a></span>
+  <span><button (click)="goto('welcome')">My Story</button></span>
   <div *ngIf="screenWidth < 1000">
     <span><button [disabled]="context == 'career'" (click)="context='career'">Career</button></span>
     <span><button [disabled]="context == 'education'" (click)="context='education'">Education</button></span>
-    <span><button [disabled]="context == 'metadata'" (click)="goto('metadata')">Tech in this site</button></span>
+    <span><button [disabled]="context == 'metadata'" (click)="context='metadata';goto('metadata')">Tech in this site</button></span>
     <div *ngIf="context === 'career'">
       <span><button (click)="goto('intrexon')">Intrexon</button></span><span><button (click)="goto('vmware')">VMWare</button></span>
       <span><button (click)="goto('chordiant')">Chordiant</button></span><span><button (click)="goto('oceania')">Oceania</button></span>

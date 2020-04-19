@@ -7,6 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  /**
+   * we need to track the width and height of the window
+   * and if it changes, flip from full screen to small screen mode
+   * In large screen mode, we have standard nav menus.
+   * In small screen mode, we have buttons for the main categories
+   * and rows of buttons for each option under that category
+   * the context variable tracks the current selected category
+   */
   screenHeight;
   screenWidth;
   context = '';
@@ -15,7 +23,10 @@ export class NavComponent implements OnInit {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
   }
-  constructor(private router:Router) {
+  constructor(private router: Router) {
+    /**
+     *  necessary to call this to initialize the size when the component is created
+     */
     this.onResize();
   }
   goto(url){
