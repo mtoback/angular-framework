@@ -17,6 +17,8 @@ import { RPIComponent } from './rpi/rpi.component';
 import { CMUComponent } from './cmu/cmu.component';
 import { NIOSHComponent } from './niosh/niosh.component';
 import { MetadataComponent } from './metadata/metadata.component';
+import { CompanyTemplateComponent } from './company-template/company-template.component';
+import { SchoolTemplateComponent } from './school-template/school-template.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { MetadataComponent } from './metadata/metadata.component';
     RPIComponent,
     CMUComponent,
     NIOSHComponent,
-    MetadataComponent
+    MetadataComponent,
+    CompanyTemplateComponent,
+    SchoolTemplateComponent
   ],
   imports: [
     BrowserModule,

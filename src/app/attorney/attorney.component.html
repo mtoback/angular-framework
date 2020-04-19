@@ -1,11 +1,1 @@
-<div *ngIf="company">
-  <div class="container">
-  <h1>{{company.name}}</h1>
-  <div class="card card-body bg-light">
-  <p>Date: {{company.date}}</p>
-  <p>Location: {{company.location}}</p>
-
-  <p>Description: {{company.description}}</p>
-  </div>
-  </div>
-</div>
+<app-company-template [company]="company"></app-company-template>

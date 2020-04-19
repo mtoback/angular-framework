@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <span><button (click)="goto('welcome')">My Story</button></span>
+  <span *ngIf="screenWidth < 1000"><button [disabled]="context == 'welcome'" (click)="goto('welcome');context='welcome'">My Story</button></span>
   <div *ngIf="screenWidth < 1000">
     <span><button [disabled]="context == 'career'" (click)="context='career'">Career</button></span>
     <span><button [disabled]="context == 'education'" (click)="context='education'">Education</button></span>
