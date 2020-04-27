@@ -19,6 +19,7 @@ import { NIOSHComponent } from './niosh/niosh.component';
 import { MetadataComponent } from './metadata/metadata.component';
 import { CompanyTemplateComponent } from './company-template/company-template.component';
 import { SchoolTemplateComponent } from './school-template/school-template.component';
+import { SwitcherComponent } from './switcher/switcher.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SchoolTemplateComponent } from './school-template/school-template.compo
     NIOSHComponent,
     MetadataComponent,
     CompanyTemplateComponent,
-    SchoolTemplateComponent
+    SchoolTemplateComponent,
+    SwitcherComponent
   ],
   imports: [
     BrowserModule,

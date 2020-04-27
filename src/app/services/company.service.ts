@@ -9,7 +9,8 @@ import {ICompany} from './company.model';
 export class CompanyService {
   constructor(private http: HttpClient) { }
   getCompanyInfo(companyName: string): Observable<ICompany> {
-    return this.http.get<ICompany>(`/api/company/${companyName}`)
+    const backend = localStorage.getItem('backend');
+    return this.http.get<ICompany>(`/api/${backend}/company/${companyName}`)
       .pipe(catchError(this.handleError<ICompany>(`getCompanyInfo:${companyName}`)));
   }
   handleError<T>(operation: string = 'operation', result?: T) {

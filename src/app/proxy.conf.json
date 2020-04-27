@@ -1,6 +1,10 @@
 {
-  "/api": {
+  "/api/python": {
     "target":"http://172.17.0.1:5000",
+    "secure": false
+  },
+  "/api/spring": {
+    "target":"http://172.17.0.1:8080",
     "secure": false
   }
 }

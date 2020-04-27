@@ -10,7 +10,8 @@ import {ISchool} from './school.model';
 export class SchoolService {
   constructor(private http: HttpClient) { }
   getSchoolInfo(schoolName: string): Observable<ISchool> {
-    return this.http.get<ISchool>(`/api/school/${schoolName}`)
+    const backend = localStorage.getItem('backend');
+    return this.http.get<ISchool>(`/api/${backend}/school/${schoolName}`)
       .pipe(catchError(this.handleError<ISchool>(`getSchoolInfo:${schoolName}`)));
   }
   handleError<T>(operation: string = 'operation', result?: T) {
